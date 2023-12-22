@@ -23,7 +23,7 @@ fun executeInstructions(instructions: List<String>, input: String): Boolean {
             }
 
             "split" -> {
-                var targets = mutableListOf<Int>()
+                val targets = mutableListOf<Int>()
                 var counter = 0
                 for (i in 1 until parts.size - 1) {
                     targets.add(parts[i].split(",")[0].toInt())
@@ -62,20 +62,20 @@ fun executeInstructions(instructions: List<String>, input: String): Boolean {
 }
 
 fun selectAlphabet(regex: String): MutableSet<Char> {
-    val operands = setOf<Char>('+', '?', '|', '*');
-    var alphabet = mutableSetOf<Char>();
+    val operands = setOf<Char>('+', '?', '|', '*')
+    val alphabet = mutableSetOf<Char>()
     for (char in regex) {
         if (!operands.contains(char)) {
-            alphabet.add(char);
+            alphabet.add(char)
         }
     }
-    return alphabet;
+    return alphabet
 }
 
 fun generateInstructions(regex: String): List<String> {
     val alphabet = selectAlphabet(regex)
     val instructions = mutableListOf<String>()
-    var pipeCount = mutableListOf<Int>(0);
+    val pipeCount = mutableListOf<Int>(0)
 
     fun addInstruction(instruction: String) {
         instructions.add(instruction)

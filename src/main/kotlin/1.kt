@@ -56,9 +56,9 @@ fun simulateAutomaton3(automaton3: Automaton3, input: String): Boolean {
 
 fun convertNfaToDfa3(nfa: Automaton3): Automaton3 {
     val dfaTransitions = mutableMapOf<Pair<Int, Int>, Set<Int>>()
-    var dfaStateSets = mutableMapOf<Set<Int>, Int>()
+    val dfaStateSets = mutableMapOf<Set<Int>, Int>()
     val dfaStartStates = setOf(0)
-    var dfaAcceptStates = mutableSetOf<Int>()
+    val dfaAcceptStates = mutableSetOf<Int>()
 
     dfaStateSets[nfa.startStates] = 0
     if (dfaStartStates.intersect(nfa.acceptStates).isNotEmpty()) {
